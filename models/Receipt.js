@@ -1,32 +1,40 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database'); 
 
-const User = sequelize.define('User', {
-  user_id: {
+const Job = sequelize.define('Job', {
+  job_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  first_name: {
+  category_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  date: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  address: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  last_name: {
+  client_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  email: {
+  phone: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
-    },
   },
-  password: {
-    type: DataTypes.STRING,
+  price: {
+    type: DataTypes.FLOAT,
     allowNull: false,
+  },
+  notes: {
+    type: DataTypes.STRING,
+    allowNull: true,
   },
 });
 
-module.exports = User;
+module.exports = Job;
