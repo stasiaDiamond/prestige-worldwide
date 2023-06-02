@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../database'); 
+const sequelize = require('../config/database'); 
 
 const User = sequelize.define('User', {
   user_id: {
@@ -29,4 +29,12 @@ const User = sequelize.define('User', {
   },
 });
 
+// User.sync({ force: true })
+//   .then(() => {
+//     console.log('User table created successfully.');
+//   })
+//   .catch((error) => {
+//     console.error('Error creating User table:', error);
+//   });
+  
 module.exports = User;

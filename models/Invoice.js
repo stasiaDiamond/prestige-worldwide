@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../database'); 
+const sequelize = require('../config/database'); 
 
 const Invoice = sequelize.define('Invoice', {
   invoice_id: {
@@ -44,5 +44,13 @@ const Invoice = sequelize.define('Invoice', {
     allowNull: false,
   },
 });
+
+// Invoice.sync({ force: true })
+//   .then(() => {
+//     console.log('Invoice table created successfully.');
+//   })
+//   .catch((error) => {
+//     console.error('Error creating Invoice table:', error);
+//   });
 
 module.exports = Invoice;
