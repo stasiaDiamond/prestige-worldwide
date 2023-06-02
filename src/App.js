@@ -3,6 +3,7 @@ import './App.css';
 
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import CategoryCards from "./components/CategoryCards.jsx";
+import ContactForm from "./components/ContactForm";
 // import AsideMenu from "./components/AsideMenu";
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
         </Container>
       </Navbar>
 
-    {/* <AsideMenu/> */}
+    <ContactForm/>
     <CategoryCards/>
   </>
   );
