@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../database'); 
+const sequelize = require('../config/database'); 
 
-const Job = sequelize.define('Job', {
+const Receipt = sequelize.define('Receipt', {
   job_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -37,4 +37,12 @@ const Job = sequelize.define('Job', {
   },
 });
 
-module.exports = Job;
+// Receipt.sync({ force: true })
+//   .then(() => {
+//     console.log('Receipt table created successfully.');
+//   })
+//   .catch((error) => {
+//     console.error('Error creating Receipt table:', error);
+//   });
+  
+module.exports = Receipt;
