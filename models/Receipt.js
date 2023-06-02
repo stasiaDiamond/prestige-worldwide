@@ -1,14 +1,14 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); 
 
-const Invoice = sequelize.define('Invoice', {
-  invoice_id: {
+const Receipt = sequelize.define('Receipt', {
+  job_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  services: {
-    type: DataTypes.STRING,
+  category_id: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   date: {
@@ -23,34 +23,26 @@ const Invoice = sequelize.define('Invoice', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  work_description: {
+  phone: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  cost: {
+  price: {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
-  expenses: {
-    type: DataTypes.FLOAT,
-    allowNull: false,
-  },
-  payment_due: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  status: {
+  notes: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 });
 
-// Invoice.sync({ force: true })
+// Receipt.sync({ force: true })
 //   .then(() => {
-//     console.log('Invoice table created successfully.');
+//     console.log('Receipt table created successfully.');
 //   })
 //   .catch((error) => {
-//     console.error('Error creating Invoice table:', error);
+//     console.error('Error creating Receipt table:', error);
 //   });
-
-module.exports = Invoice;
+  
+module.exports = Receipt;
