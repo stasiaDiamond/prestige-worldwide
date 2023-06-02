@@ -9,7 +9,7 @@ import Welcome from "./components/pages/welcomepage";
 
 
 function App() {
-  const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
+//   const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
 
   return (
 //     <>
@@ -63,7 +63,7 @@ function App() {
       <Route path="/schedule" element={<Schedule/>}/>
     </Routes>
   </BrowserRouter>
-)
-};
+);
+}
 
 export default App;

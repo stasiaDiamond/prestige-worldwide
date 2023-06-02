@@ -1,18 +1,20 @@
+import Figure from 'react-bootstrap/Figure';
 
-export default function Welcome() {
-    const textStyle = {
-      fontSize: '80px',
-     
-    };
-    return (
-      <div className="main">
-        <div className="content">
-          <h1 style={textStyle}>
-            Welcome
-          </h1>
-          <p>to Thunderdome, Bitch</p>
-        </div>
-        
-      </div>
-    );
-  }
+function FigureExample() {
+  return (
+    <Figure>
+      <Figure.Image
+        width={171}
+        height={180}
+        alt="171x180"
+        src="public/images/logo-transparent.png" />
+      
+    </Figure>
+  );
+}
+
+export default FigureExample;
+
+
+
+
