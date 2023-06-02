@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../database'); 
-const JobCategory = require('./JobCategory');
+const sequelize = require('../config/database'); 
+const JobCategory = require('../models/JobCategory');
 
 const Job = sequelize.define('Job', {
   job_id: {
@@ -38,7 +38,12 @@ const Job = sequelize.define('Job', {
   },
 });
 
-Job.belongsTo(JobCategory, { foreignKey: 'category_id' });
-JobCategory.hasMany(Job, { foreignKey: 'category_id' });
+// Job.sync({ force: true })
+//   .then(() => {
+//     console.log('Job table created successfully.');
+//   })
+//   .catch((error) => {
+//     console.error('Error creating Job table:', error);
+//   });
 
 module.exports = Job;
