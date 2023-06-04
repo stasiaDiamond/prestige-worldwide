@@ -1,7 +1,12 @@
 const express = require('express');
 const allRoutes = require('./controllers');
 const cors = require("cors")
+<<<<<<< HEAD
+const sequelize = require('./config/database');
+
+=======
 const sequelize = require('./config/connection');
+>>>>>>> dev
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 3001;
