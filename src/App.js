@@ -1,43 +1,39 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Topbar from "./scenes/global/Topbar";
+import Sidebar from "./scenes/global/Sidebar";
+import Dashboard from "./scenes/dashboard";
+import Invoices from "./scenes/invoices";
+import Contacts from "./scenes/contacts";
+import Form from "./scenes/form";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+import Calendar from "./scenes/calendar/calendar";
 
-function BasicExample() {
+function App() {
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
+
   return (
-    <Navbar bg="dark" expand="lg" variant="dark">
-      <Container>
-        <Navbar.Brand>
-        <img
-              alt="logo"
-              src="./images/logo-transparent.png"
-              width="100"
-              height="100"
-              className="d-inline-block align-top"
-            />{' '}
-            </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-            <Nav.Link href="/invoices">Invoices</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/childcare">Child Care</NavDropdown.Item>
-              <NavDropdown.Item href="/cleaning">Cleaning</NavDropdown.Item>
-              <NavDropdown.Item href="/cooking">Cooking</NavDropdown.Item>
-              <NavDropdown.Item href="/dogwalking">Dog Walking</NavDropdown.Item>
-              <NavDropdown.Item href="/handjobs">Hand Jobs</NavDropdown.Item>
-              <NavDropdown.Item href="/yardwork">Yard Work</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/logout">Log Out
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <Sidebar isSidebar={isSidebar} />
+          <main className="content">
+            <Topbar setIsSidebar={setIsSidebar} />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/invoices" element={<Invoices />} />
+              <Route path="/form" element={<Form />} />
+              <Route path="/calendar" element={<Calendar />} />
+            </Routes>
+          </main>
+        </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
->>>>>>> dev
 }
 
-export default BasicExample;
+export default App;
