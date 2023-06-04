@@ -8,7 +8,7 @@ const jobCategories = [
   { id: 3, name: 'Cooking' },
   { id: 4, name: 'Dog Walking' },
   { id: 5, name: 'Yard Work' },
-  { id: 6, name: 'Hardly Work' }
+  { id: 6, name: 'Handy Work' }
 ];
 
 // Placeholder jobs array

@@ -1,41 +1,42 @@
-import React from "react";
-import './App.css';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import CategoryCards from "./components/CategoryCards.jsx";
-import ContactForm from "./components/ContactForm";
-// import AsideMenu from "./components/AsideMenu";
-
-function App() {
-  const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
-
+function BasicExample() {
   return (
-    <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Only Hands</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            
-            <Nav className="me-auto">
-              <Nav.Link href="#dashboard">Dashboard</Nav.Link>
-              <Nav.Link href="#schedule">Schedule</Nav.Link>
-              <Nav.Link href="#invoices">Invoices</Nav.Link>
-
-
-            </Nav>
-
-            <Nav>
-              <Nav.Link href="#add-job"> + New Job </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-    <ContactForm/>
-    <CategoryCards/>
-  </>
+    <Navbar bg="dark" expand="lg" variant="dark">
+      <Container>
+        <Navbar.Brand>
+        <img
+              alt="logo"
+              src="./images/logo-transparent.png"
+              width="100"
+              height="100"
+              className="d-inline-block align-top"
+            />{' '}
+            </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+            <Nav.Link href="/invoices">Invoices</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/childcare">Child Care</NavDropdown.Item>
+              <NavDropdown.Item href="/cleaning">Cleaning</NavDropdown.Item>
+              <NavDropdown.Item href="/cooking">Cooking</NavDropdown.Item>
+              <NavDropdown.Item href="/dogwalking">Dog Walking</NavDropdown.Item>
+              <NavDropdown.Item href="/handjobs">Hand Jobs</NavDropdown.Item>
+              <NavDropdown.Item href="/yardwork">Yard Work</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/logout">Log Out
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default App;
+export default BasicExample;

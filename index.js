@@ -20,7 +20,6 @@ app.use(cors());
 sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
-<<<<<<< HEAD
     });
 
 });
@@ -79,7 +78,3 @@ app.post("/send_email", (req, res) => {
 // app.listen(port, () => {
 //     console.log(`Practice server for mail tests listening st http://localhost:${port}`);
 // });
-=======
-  });
-});
->>>>>>> dev
