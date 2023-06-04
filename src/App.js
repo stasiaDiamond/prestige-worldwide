@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from "react-bootstrap";
 import CategoryCards from "./components/CategoryCards.jsx";
-import SendEmailTesting from "./components/SendEmailTesting";
+import SendEmailTesting from "./components/SendEmailTesting.jsx";
+import NewJobForm from "./components/NewJobForm.jsx";
 
 function App() {
   const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
@@ -59,7 +60,7 @@ function InvoicesPage() {
 
 function AddJobPage() {
   // Component for the Add Job page
-  return <h1>Enter Add a job form here</h1>;
+  return <NewJobForm />;
 }
 
 function EmailTestingPage() {

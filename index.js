@@ -2,12 +2,26 @@ const express = require('express');
 const allRoutes = require('./controllers');
 const cors = require("cors")
 const sequelize = require('./config/connection');
+
+
 // Sets up the Express App
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 const { Invoice, Job, Receipt, User, JobCategory } = require('./models');
+
+// ----------------------------------------------------------------------------
+// -------------------NDS BELOW
+// ----------------------------------------------------------------------------
+var corsOptions = {
+    origin: "http://localhost:8081"
+};
+
+app.use(cors(corsOptions));
+// ----------------------------------------------------------------------------
+// -------------------NDS END
+// ----------------------------------------------------------------------------
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -18,11 +32,22 @@ app.use(cors());
 // app.use('/', allRoutes);
 
 sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
+    app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });
 
 });
+// ----------------------------------------------------------------------------
+// -------------------NDS BELOW
+// ----------------------------------------------------------------------------
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to Only Hands APP.GET GOT ME!" });
+});
+// ----------------------------------------------------------------------------
+// -------------------NDS END
+// ----------------------------------------------------------------------------
+
+
 // ------------------------------------------------------------------------------
 
 // const express = require('express');
