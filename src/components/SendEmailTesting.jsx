@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Form, Button } from 'react-bootstrap';
 
-export default function ContactForm() {
+export default function SendEmailTesting() {
     const [recipient_email, setEmail] = useState("");
     const [subject, setSubject] = useState("");
     const [message, setMessages] = useState("");
