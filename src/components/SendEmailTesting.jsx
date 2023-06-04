@@ -31,11 +31,11 @@ export default function ContactForm() {
     return (
         <Form>
             <Form.Group controlId="formBasicEmail">
-            <Form.Label>Work Description</Form.Label>
+            <Form.Label>I send emails!</Form.Label>
             <Form.Control 
                 type="email" 
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="email for testing purposes" />
+                placeholder="enter email then run file to test!" />
             <Form.Text className="text-muted">
                 All info except Notes will appear on the invoice.
             </Form.Text>

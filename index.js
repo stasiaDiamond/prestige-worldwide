@@ -1,12 +1,7 @@
 const express = require('express');
 const allRoutes = require('./controllers');
 const cors = require("cors")
-<<<<<<< HEAD
-const sequelize = require('./config/database');
-
-=======
 const sequelize = require('./config/connection');
->>>>>>> dev
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -25,7 +20,6 @@ app.use(cors());
 sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
-<<<<<<< HEAD
     });
 
 });
@@ -56,7 +50,7 @@ function sendEmail({ recipient_email , subject , message }) {
         });
 
         const mailConfig = {
-            from: "YO! <boisefosters@gmail.com>",
+            from: "Only Hands Invoicing <boisefosters@gmail.com>",
             to: recipient_email,
             subject: subject,
             text: message,
@@ -72,8 +66,6 @@ function sendEmail({ recipient_email , subject , message }) {
     });
 }
 
-
-
 app.post("/send_email", (req, res) => {
     const { recipient_email , subject , message } = req.body;
     sendEmail({ recipient_email , subject , message })
@@ -84,7 +76,3 @@ app.post("/send_email", (req, res) => {
 // app.listen(port, () => {
 //     console.log(`Practice server for mail tests listening st http://localhost:${port}`);
 // });
-=======
-  });
-});
->>>>>>> dev
