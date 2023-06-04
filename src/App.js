@@ -37,6 +37,7 @@ function BasicExample() {
       </Container>
     </Navbar>
   );
+>>>>>>> dev
 }
 
 export default BasicExample;
