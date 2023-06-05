@@ -1,98 +1,39 @@
-import React from "react";
-import './index';
-import NavTabs from "./components/NavTabs";
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Dashboard from './components/pages/dashboard';
-import Invoices from './components/pages/invoice';
-import Schedule from './components/pages/schedule';
-import Welcome from "./components/pages/welcomepage";
-
-<<<<<<< HEAD
-=======
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import CategoryCards from "./components/CategoryCards.jsx";
-import ContactForm from "./components/ContactForm";
-// import AsideMenu from "./components/AsideMenu";
->>>>>>> dev
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Topbar from "./scenes/global/Topbar";
+import Sidebar from "./scenes/global/Sidebar";
+import Dashboard from "./scenes/dashboard";
+import Invoices from "./scenes/invoices";
+import Contacts from "./scenes/contacts";
+import Form from "./scenes/form";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+import Calendar from "./scenes/calendar/calendar";
 
 function App() {
-//   const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
 
   return (
-//     <>
-//       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-//         <Container>
-//           <Navbar.Brand href="#home">Only Hands</Navbar.Brand>
-//           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-//           <Navbar.Collapse id="responsive-navbar-nav">
-            
-<<<<<<< HEAD
-//             <Nav className="me-auto">
-//               <Nav.Link href="#features">Dashboard</Nav.Link>
-//               <Nav.Link href="#pricing">Schedule</Nav.Link>
-//               <Nav.Link href="#pricing">Invoices</Nav.Link>
-
-
-//               <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-//                 <NavDropdown.Item href="#action/3.1">Do we need...</NavDropdown.Item>
-//                 <NavDropdown.Item href="#action/3.2">
-//                   A dropdown?
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action/3.3">Is this...</NavDropdown.Item>
-//                 <NavDropdown.Divider />
-//                 <NavDropdown.Item href="#action/3.4">
-//                   necessary?
-//                 </NavDropdown.Item>
-//               </NavDropdown>
-//             </Nav>
-
-//             <Nav>
-//               <Nav.Link href="#add-job"> + New Job </Nav.Link>
-//               <Nav.Link eventKey={2} href="#memes">
-//                 Send Invoice
-//               </Nav.Link>
-//             </Nav>
-//           </Navbar.Collapse>
-//         </Container>
-//       </Navbar>
-
-//     <categoryCards/>
-//   </>
-//   );
-// }
-
-
-  <BrowserRouter>
-    <NavTabs/>
-    <Routes>
-    <Route path="/" element={<Welcome/>}/>
-      <Route path="/dashboard" element={<Dashboard/>}/>
-      <Route path="/invoice" element={<Invoices/>}/>
-      <Route path="/schedule" element={<Schedule/>}/>
-    </Routes>
-  </BrowserRouter>
-);
-=======
-            <Nav className="me-auto">
-              <Nav.Link href="#dashboard">Dashboard</Nav.Link>
-              <Nav.Link href="#schedule">Schedule</Nav.Link>
-              <Nav.Link href="#invoices">Invoices</Nav.Link>
-
-
-            </Nav>
-
-            <Nav>
-              <Nav.Link href="#add-job"> + New Job </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-    <ContactForm/>
-    <CategoryCards/>
-  </>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <Sidebar isSidebar={isSidebar} />
+          <main className="content">
+            <Topbar setIsSidebar={setIsSidebar} />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/invoices" element={<Invoices />} />
+              <Route path="/form" element={<Form />} />
+              <Route path="/calendar" element={<Calendar />} />
+            </Routes>
+          </main>
+        </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
->>>>>>> dev
 }
 
 export default App;
