@@ -9,10 +9,14 @@ import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+import CollectionsIcon from '@mui/icons-material/Collections';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import PetsIcon from '@mui/icons-material/Pets';
+import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
+import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
+import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
+import HandymanIcon from '@mui/icons-material/Handyman';
+import YardIcon from '@mui/icons-material/Yard';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -76,9 +80,13 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
-                  Only Hands
-                </Typography>
+                <img
+                  alt="logo"
+                  width="100px"
+                  height="100px"
+                  src={`../../assets/logo-wht-bg.png`}
+                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                />
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
@@ -88,15 +96,6 @@ const Sidebar = () => {
 
           {!isCollapsed && (
             <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="100px"
-                  height="100px"
-                  src={`../../assets/hothothot.jpg`}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
               <Box textAlign="center">
                 <Typography
                   variant="h2"
@@ -160,6 +159,55 @@ const Sidebar = () => {
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Gallery"
+              to="/gallery"
+              icon={<CollectionsIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Child Care"
+              to="/childCarePage"
+              icon={<ChildFriendlyIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Cleaning"
+              to="/cleaningPage"
+              icon={<CleaningServicesIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Cooking"
+              to="/cookingPage"
+              icon={<OutdoorGrillIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Dog Walking"
+              to="/dogWalking"
+              icon={<PetsIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Hand Jobs"
+              to="/handjobPage"
+              icon={<HandymanIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Yard Work"
+              to="/yardWorkPage"
+              icon={<YardIcon />}
               selected={selected}
               setSelected={setSelected}
             />
